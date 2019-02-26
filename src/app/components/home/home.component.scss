@@ -1,0 +1,29 @@
+.example-icon {
+    padding: 0 14px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.mat-form-field {
+    width: 90%;
+    padding: 0 5% 0 5%;
+    margin-top: 2rem;
+}
+
+table {
+    width: 100%;
+    .mat-header-cell {
+        width: 25%;
+    }
+    .mat-cell {
+        width: 25%;
+    }
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}

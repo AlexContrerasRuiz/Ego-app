@@ -1,0 +1,16 @@
+[{
+    "nombre": "libro",
+    "editorial": "editorial1",
+    "autor": "autor1",
+    "edicion": "edicion1"
+}, {
+    "nombre": "libro2",
+    "editorial": "editorial2",
+    "autor": "autor2",
+    "edicion": "edicion2"
+}, {
+    "nombre": "libro3",
+    "editorial": "editorial3",
+    "autor": "autor3",
+    "edicion": "edicion3"
+}]

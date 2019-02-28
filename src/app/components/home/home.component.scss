@@ -1,3 +1,10 @@
+    span {
+        font-size: 3vw;
+        @media screen and (min-width: 992px) {
+            font-size: 1vw;
+        }
+    }
+    
     .delete-icon {
         padding: 0 14px;
         margin-right: 10px;
@@ -38,6 +45,7 @@
         justify-content: center;
         cursor: pointer;
         h2 {
+            font-size: 5vw;
             border: dashed 2px gainsboro;
             border-radius: 10px;
             padding: 2rem;
@@ -45,6 +53,9 @@
             &:hover {
                 background-color: indigo;
                 border: none;
+            }
+            @media screen and (min-width: 992px) {
+                font-size: 1vw;
             }
         }
     }

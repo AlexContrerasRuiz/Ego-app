@@ -1,3 +1,10 @@
+.dialog-wrap {
+    width: 100%;
+    @media screen and(min-width: 768px) {
+        width: 500px;
+    }
+}
+
 .mat-form-field {
     padding-top: 15px;
     &:first-child {

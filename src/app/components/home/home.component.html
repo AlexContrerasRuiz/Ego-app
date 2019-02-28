@@ -3,7 +3,7 @@
     <mat-toolbar-row>
         <span>Tabla de Libros</span>
         <span class="example-spacer"></span>
-        <p class="counter">Libros Registrados : {{ServiceBooks.librosCount}}</p>
+        <span class="counter">Libros Registrados : {{ServiceBooks.librosCount}}</span>
         <mat-icon class="delete-icon">delete</mat-icon>
     </mat-toolbar-row>
 
@@ -24,7 +24,7 @@
 <table mat-table [dataSource]="ServiceBooks.libros" class="mat-elevation-z8">
 
 
-    <!-- Position Column -->
+    <!-- Nombre -->
     <ng-container matColumnDef="nombre">
         <th mat-header-cell *matHeaderCellDef> Nombre </th>
         <td mat-cell *matCellDef="let element">
@@ -32,7 +32,7 @@
         </td>
     </ng-container>
 
-    <!-- Name Column -->
+    <!-- Autor -->
     <ng-container matColumnDef="autor">
         <th mat-header-cell *matHeaderCellDef> Autor </th>
         <td mat-cell *matCellDef="let element">
@@ -40,18 +40,19 @@
         </td>
     </ng-container>
 
-    <!-- Weight Column -->
+    <!-- Editorial -->
     <ng-container matColumnDef="editorial">
         <th mat-header-cell *matHeaderCellDef> Editorial </th>
         <td mat-cell *matCellDef="let element"> {{element.editorial}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
+    <!-- Edicion -->
     <ng-container matColumnDef="edicion">
         <th mat-header-cell *matHeaderCellDef> Edicion </th>
         <td mat-cell *matCellDef="let element"> {{element.edicion}} </td>
     </ng-container>
-    <!-- Symbol Column -->
+
+    <!-- Remover-->
     <ng-container matColumnDef="remove">
         <th mat-header-cell *matHeaderCellDef> Remover </th>
         <td mat-cell *matCellDef="let element"> <i class="material-icons cursor " (click)="ServiceBooks.eliminarLibro(element.nombre)">close</i> </td>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../../providers/books.service';
-import {MatTableDataSource} from '@angular/material';
+import { MatDialog } from '@angular/material';
+import { AddmodalComponent } from './addmodal/addmodal.component';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 @Component({
@@ -9,42 +11,37 @@ import {MatTableDataSource} from '@angular/material';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  Base_Libro:any = this.ServiceBooks.showBooks();
-
-  displayedColumns: string[] = ['nombre', 'editorial', 'autor', 'edicion', 'remove'];
   
-  dataSource = new MatTableDataSource(this.Base_Libro);
+  
+  displayedColumns: string[] = ['nombre', 'autor', 'editorial', 'edicion', 'remove'];
+  
 
+  constructor(public ServiceBooks:BooksService, private dialog:MatDialog, private db: AngularFirestore,
+    private confirmation:MatDialog
+            
+    
+    ) {
 
-  constructor(private ServiceBooks:BooksService) { }
+    this.ServiceBooks.cargarLibros().subscribe();
+
+    }
+
 
   ngOnInit() {
+      
 
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  modalOpen(){
+    this.dialog.open(AddmodalComponent);
   }
 
-  Add(){
+  
 
-    this.Base_Libro = this.ServiceBooks.addbook('quixote','santillana',' cervantes', '1');
-    this.dataSource = new MatTableDataSource(this.Base_Libro);
-        
-  }
-
-  remove(name:string){
-
-    this.ServiceBooks.removeBook(name);
-        
-    this.Base_Libro = this.ServiceBooks.showBooks();
-    this.dataSource = new MatTableDataSource(this.Base_Libro);
+  deleteItem(element:string){
     
+    this.ServiceBooks.eliminarLibro(element);
   }
 
 
 }
-
-
-

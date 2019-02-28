@@ -1,0 +1,14 @@
+.mat-form-field {
+    padding-top: 15px;
+    &:first-child {
+        padding-top: 10px;
+    }
+    &:last-child {
+        padding-bottom: 10px;
+    }
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: flex-end
+}

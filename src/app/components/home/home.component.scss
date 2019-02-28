@@ -1,29 +1,125 @@
-.example-icon {
-    padding: 0 14px;
-}
-
-.example-spacer {
-    flex: 1 1 auto;
-}
-
-.mat-form-field {
-    width: 90%;
-    padding: 0 5% 0 5%;
-    margin-top: 2rem;
-}
-
-table {
-    width: 100%;
-    .mat-header-cell {
-        width: 25%;
+    .delete-icon {
+        padding: 0 14px;
+        margin-right: 10px;
     }
-    .mat-cell {
-        width: 25%;
+    
+    .example-spacer {
+        flex: 1 1 auto;
     }
-}
-
-.button-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
-}
+    
+    .counter {
+        margin: 0;
+    }
+    
+    .mat-form-field {
+        width: 90%;
+        padding: 0 5% 0 5%;
+        margin-top: 2rem;
+    }
+    
+    table {
+        .mat-header-cell {
+            width: 25%;
+        }
+        td {
+            p {
+                margin: 0;
+                width: 50px;
+                overflow: hidden;
+                padding-right: 10px;
+            }
+        }
+    }
+    
+    .mensaje-arr-vacio {
+        width: 100%;
+        margin-top: 4rem;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        h2 {
+            border: dashed 2px gainsboro;
+            border-radius: 10px;
+            padding: 2rem;
+            color: gainsboro;
+            &:hover {
+                background-color: indigo;
+                border: none;
+            }
+        }
+    }
+    
+    .control-wrapper {
+        display: flex;
+        align-items: center;
+        padding-top: 2rem;
+        .mat-form-field {
+            width: 75%;
+            margin-top: 0;
+            padding-left: 2rem;
+            .mat-form-field-wrapper {
+                padding: 0;
+            }
+        }
+        .mat-raised-button {
+            margin-left: 2rem;
+            height: 35px;
+        }
+    }
+    
+    .cursor {
+        cursor: pointer;
+    }
+    
+    // @media 
+    // @media (min-width: 576px) {}
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) {
+        table {
+            .mat-header-cell {
+                width: 25%;
+            }
+            td {
+                p {
+                    margin: 0;
+                    width: 100px;
+                    overflow: hidden;
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+    
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) {
+        table {
+            .mat-header-cell {
+                width: 25%;
+            }
+            td {
+                p {
+                    margin: 0;
+                    width: 150px;
+                    overflow: hidden;
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+    
+    // Extra large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) {
+        table {
+            .mat-header-cell {
+                width: 25%;
+            }
+            td {
+                p {
+                    margin: 0;
+                    width: 100%;
+                    overflow: hidden;
+                    padding-right: 10px;
+                }
+            }
+        }
+    }

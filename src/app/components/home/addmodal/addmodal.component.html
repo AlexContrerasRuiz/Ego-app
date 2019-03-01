@@ -1,30 +1,30 @@
-<div class="container dialog-wrap">
+<div class="dialog-wrap">
 
-    <h2>Agregar Libro</h2>
+    <p mat-dialog-title>AGREGAR LIBRO</p>
 
-    <div class="dialog d-flex flex-column">
+    <div mat-dialog-content class="dialog d-flex flex-column">
         <mat-form-field>
-            <input (input)="nombre = $event.target.value" matInput placeholder="Nombre" name="nombre" [(ngModel)]="nombre" minlength="2" required>
+            <input (input)="nombre = $event.target.value" matInput placeholder="Nombre" [(ngModel)]="nombre" minlength="2" required>
             <mat-error *ngIf="vadilator.invalid">{{getErrorMessage('el nombre')}}</mat-error>
 
         </mat-form-field>
 
         <mat-form-field>
-            <input (input)="autor = $event.target.value" matInput placeholder="Autor" name="autor" [(ngModel)]="autor" required>
+            <input (input)="autor = $event.target.value" matInput placeholder="Autor" [(ngModel)]="autor" required>
             <mat-error *ngIf="vadilator.invalid">{{getErrorMessage('el autor')}}</mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input (input)="editorial = $event.target.value" matInput placeholder="Editorial" name="editorial" [(ngModel)]="editorial" required>
+            <input (input)="editorial = $event.target.value" matInput placeholder="Editorial" [(ngModel)]="editorial" required>
             <mat-error *ngIf="vadilator.invalid">{{getErrorMessage('la editorial')}}</mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input (input)="edicion = $event.target.value" matInput placeholder="Edicion" name="edicion" [(ngModel)]="edicion" required>
+            <input (input)="edicion = $event.target.value" matInput placeholder="Edicion" [(ngModel)]="edicion" required>
             <mat-error *ngIf="vadilator.invalid">{{getErrorMessage('la edicion')}}</mat-error>
         </mat-form-field>
 
     </div>
 
-    <div class="button-wrapper">
+    <div mat-dialog-actions>
 
         <button (click)="agregarLibro()" (keypress)="agregarLibro()" mat-stroked-button color="accent">Agregar</button>
 

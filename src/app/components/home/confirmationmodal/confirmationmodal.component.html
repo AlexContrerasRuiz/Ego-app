@@ -1,0 +1,17 @@
+<p mat-dialog-title>Borrar Libro</p>
+
+<div mat-dialog-content>
+
+    <p class="title">Estas seguro que deseas borrar este registro?</p>
+
+    <p class="libro">Libro a Borrar: {{data.name}} </p>
+
+</div>
+
+<div mat-dialog-actions class="button-wrapper">
+
+    <button mat-stroked-button color="accent" [matDialogClose] class="cancelar">Cancelar</button>
+
+    <button mat-raised-button color="warn" (click)="deleteItem(data.name)" class="borrar">Borrar</button>
+
+</div>

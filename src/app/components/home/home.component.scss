@@ -1,29 +1,98 @@
-    span {
-        font-size: 3vw;
+span {
+    font-size: 3vw;
+    @media screen and (min-width: 992px) {
+        font-size: 1vw;
+    }
+}
+
+.delete-icon {
+    padding: 0 14px;
+    margin-right: 10px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.counter {
+    margin: 0;
+}
+
+.mat-form-field {
+    width: 90%;
+    padding: 0 5% 0 5%;
+    margin-top: 2rem;
+}
+
+.control-wrapper {
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+    .mat-form-field {
+        width: 75%;
+        margin-top: 0;
+        padding-left: 2rem;
+        .mat-form-field-wrapper {
+            padding: 0;
+        }
+    }
+    .mat-raised-button {
+        margin-left: 2rem;
+        height: 35px;
+    }
+}
+
+table {
+    width: 100%;
+    .mat-header-cell {
+        width: 20%;
+    }
+    td {
+        p {
+            margin: 0;
+            width: 50px;
+            overflow: hidden;
+            padding-right: 10px;
+        }
+    }
+}
+
+.mensaje-arr-vacio {
+    width: 100%;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    h2 {
+        font-size: 5vw;
+        border: dashed 2px gainsboro;
+        border-radius: 10px;
+        padding: 1rem 3rem;
+        color: gainsboro;
+        &:hover {
+            background-color: #3F51B5;
+            border: solid 2px transparent;
+            color: white;
+        }
         @media screen and (min-width: 992px) {
             font-size: 1vw;
         }
     }
-    
-    .delete-icon {
-        padding: 0 14px;
-        margin-right: 10px;
-    }
-    
-    .example-spacer {
-        flex: 1 1 auto;
-    }
-    
-    .counter {
-        margin: 0;
-    }
-    
-    .mat-form-field {
-        width: 90%;
-        padding: 0 5% 0 5%;
-        margin-top: 2rem;
-    }
-    
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.switcher {
+    width: 100%;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
     table {
         .mat-header-cell {
             width: 25%;
@@ -31,106 +100,44 @@
         td {
             p {
                 margin: 0;
-                width: 50px;
+                width: 100px;
                 overflow: hidden;
                 padding-right: 10px;
             }
         }
     }
-    
-    .mensaje-arr-vacio {
-        width: 100%;
-        margin-top: 4rem;
-        display: flex;
-        justify-content: center;
-        cursor: pointer;
-        h2 {
-            font-size: 5vw;
-            border: dashed 2px gainsboro;
-            border-radius: 10px;
-            padding: 2rem;
-            color: gainsboro;
-            &:hover {
-                background-color: indigo;
-                border: none;
-            }
-            @media screen and (min-width: 992px) {
-                font-size: 1vw;
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    table {
+        .mat-header-cell {
+            width: 25%;
+        }
+        td {
+            p {
+                margin: 0;
+                width: 150px;
+                overflow: hidden;
+                padding-right: 10px;
             }
         }
     }
-    
-    .control-wrapper {
-        display: flex;
-        align-items: center;
-        padding-top: 2rem;
-        .mat-form-field {
-            width: 75%;
-            margin-top: 0;
-            padding-left: 2rem;
-            .mat-form-field-wrapper {
-                padding: 0;
-            }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    table {
+        .mat-header-cell {
+            width: 25%;
         }
-        .mat-raised-button {
-            margin-left: 2rem;
-            height: 35px;
-        }
-    }
-    
-    .cursor {
-        cursor: pointer;
-    }
-    
-    // @media 
-    // @media (min-width: 576px) {}
-    // Medium devices (tablets, 768px and up)
-    @media (min-width: 768px) {
-        table {
-            .mat-header-cell {
-                width: 25%;
-            }
-            td {
-                p {
-                    margin: 0;
-                    width: 100px;
-                    overflow: hidden;
-                    padding-right: 10px;
-                }
+        td {
+            p {
+                margin: 0;
+                width: 100%;
+                overflow: hidden;
+                padding-right: 10px;
             }
         }
     }
-    
-    // Large devices (desktops, 992px and up)
-    @media (min-width: 992px) {
-        table {
-            .mat-header-cell {
-                width: 25%;
-            }
-            td {
-                p {
-                    margin: 0;
-                    width: 150px;
-                    overflow: hidden;
-                    padding-right: 10px;
-                }
-            }
-        }
-    }
-    
-    // Extra large devices (large desktops, 1200px and up)
-    @media (min-width: 1200px) {
-        table {
-            .mat-header-cell {
-                width: 25%;
-            }
-            td {
-                p {
-                    margin: 0;
-                    width: 100%;
-                    overflow: hidden;
-                    padding-right: 10px;
-                }
-            }
-        }
-    }
+}

@@ -20,10 +20,12 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FirestoreSettingsToken} from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Environments
 import { environment } from "../environments/environment";
+import { ConfirmationmodalComponent } from './components/home/confirmationmodal/confirmationmodal.component';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { environment } from "../environments/environment";
     AppComponent,
     HomeComponent,
     AddmodalComponent,
+    ConfirmationmodalComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,8 +48,8 @@ import { environment } from "../environments/environment";
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent],
-  entryComponents: [AddmodalComponent]
+  entryComponents: [AddmodalComponent, ConfirmationmodalComponent]
 })
 export class AppModule { }

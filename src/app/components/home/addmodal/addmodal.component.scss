@@ -1,10 +1,3 @@
-.dialog-wrap {
-    width: 100%;
-    @media screen and(min-width: 768px) {
-        width: 500px;
-    }
-}
-
 .mat-form-field {
     padding-top: 15px;
     &:first-child {
@@ -15,7 +8,14 @@
     }
 }
 
-.button-wrapper {
+.mat-dialog-actions {
     display: flex;
-    justify-content: flex-end
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .dialog-wrap {
+        width: 500px;
+    }
 }

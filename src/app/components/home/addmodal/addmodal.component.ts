@@ -26,10 +26,12 @@ export class AddmodalComponent implements OnInit {
 
   vadilator = new FormControl('', [Validators.required]);
 
+
   getErrorMessage( msg:string) {
     return this.vadilator.hasError('required') ? `es necesario ${msg}` :
             '';
   }
+  
   
 
   agregarLibro(){

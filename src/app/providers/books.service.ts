@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { map } from 'rxjs/operators';
 import { Libros } from '../interfaces/libros.interface';
 import { FirebaseFunctions, FirebaseOptions } from '@angular/fire';
+import dbboks from 'src/app/dbLocal/dbBooks.json'
 
 
 
@@ -10,24 +11,34 @@ import { FirebaseFunctions, FirebaseOptions } from '@angular/fire';
   providedIn: 'root'
 })
 export class BooksService {
+
+  //LOCAL DB BOOKS
+    
+  public books:Libros[] = dbboks;
+
+  // 
   
-  public libros:any[] = [];
+  public libros:Libros[] = [];
 
   public keys:any[] = [];
 
   public itemDelete: AngularFirestoreDocument<any>
   
-  public itemsCollection: AngularFirestoreCollection<any>;
+  public itemsCollection: AngularFirestoreCollection<Libros>;
 
   public filtro: string;
 
-  public librosCount:any;
+  public librosCount: number = 1;
+
+  public loading = true;
 
   
   constructor(public afs: AngularFirestore) {
 
-    this.itemsCollection = afs.collection<any>('items');
+    //Carga la base de datos local
+    this.itemsCollection = afs.collection<Libros>('items');
 
+    // Obtiene los keys de firebase
     this.itemsCollection.snapshotChanges().pipe( map( items => {
       return items.map(action => ({ $key: action.payload.doc.id, ...action.payload.doc.data() }));
     })).subscribe( data => {
@@ -37,6 +48,30 @@ export class BooksService {
   
   }
 
+
+  // Switch Carga Local
+
+  //Carga el Json
+
+  localbooks(){
+
+    this.libros = this.books;
+    this.librosCount = this.books.length;
+
+  }
+
+  //Carga FireBase
+
+  firebooks(){
+
+    this.cargarLibros().subscribe();
+
+  }
+
+  // End
+
+
+
   filtrar(){
 
 
@@ -44,7 +79,7 @@ export class BooksService {
       
       let terminoFiltro = this.filtro.toLowerCase();
 
-      let tempArray:any[] = [];
+      let tempArray:Libros[] = [];
 
       for (const iterator of data) {
 
@@ -54,29 +89,33 @@ export class BooksService {
 
         const autor = element.autor.toLowerCase().trim();
 
-        if(nombre.indexOf(terminoFiltro) >= 0 || autor.indexOf(terminoFiltro) >= 0) {
+        // si coincide
+        nombre.indexOf(terminoFiltro) >= 0 || autor.indexOf(terminoFiltro) >= 0 ? tempArray.push(element): '';
             
-            tempArray.push(element);
-            
-          }
-        if(this.filtro == '') {
-            this.cargarLibros().subscribe();
-            return
-          }
+        // si esta vacio
 
-          this.libros = tempArray;
+        this.filtro == '' ? this.cargarLibros().subscribe() :  '';
+        
+
+        // Establece la variable libros con el la busqueda
+
+        this.libros = tempArray;
+
+
         }
+
     }))
     }
 
 
   cargarLibros(){
 
-    this.itemsCollection = this.afs.collection<any>('items');
+    this.itemsCollection = this.afs.collection<Libros>('items');
 
     return this.itemsCollection.valueChanges().pipe( map( data => {
     
         this.libros = data;
+        this.loading = false;
         this.librosCount = this.libros.length;
           
     }));
@@ -111,17 +150,16 @@ export class BooksService {
     for (const key in this.keys) {
       if (this.keys.hasOwnProperty(key)) {
         const element = this.keys[key];
-        if (element.nombre === elemento){
-        
-              $key = element.$key
+
+        element.nombre === elemento ? $key = element.$key : '';
               
-          } 
         
       }
     }
       
     this.itemDelete = this.afs.doc(`items/${$key}`);
     this.itemDelete.delete();
+    
   }
 
 

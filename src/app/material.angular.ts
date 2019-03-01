@@ -7,7 +7,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 
@@ -22,7 +23,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
             MatInputModule,
             MatFormFieldModule,
             MatDialogModule,
-            MatSnackBarModule], 
+            MatSnackBarModule,
+            MatProgressBarModule,
+            MatSlideToggleModule], 
             
     exports: [MatButtonModule,
         MatCheckboxModule, 
@@ -32,7 +35,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
         MatInputModule,
         MatFormFieldModule,
         MatDialogModule,
-        MatSnackBarModule]
+        MatSnackBarModule,
+        MatProgressBarModule,
+        MatSlideToggleModule]
 })
 
 
